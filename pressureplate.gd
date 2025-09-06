@@ -27,15 +27,14 @@ func _ready():
 
 
 func _on_body_entered(body):
-	# ADD THIS LINE FOR DEBUGGING:
+	#
 	print("Pressure plate detected something: ", body.name)
 
-	# Make sure we don't add the same body twice.
 	if not body in bodies_on_plate:
-		# If this is the VERY FIRST body to step on, emit the activated signal.
+		
 		if bodies_on_plate.is_empty():
 			emit_signal("activated")
-			visual.color = Color.GREEN # Visual feedback
+			visual.color = Color.GREEN 
 			print("Pressure Plate Activated!")
 			
 		bodies_on_plate.append(body)
@@ -45,8 +44,8 @@ func _on_body_exited(body):
 	if body in bodies_on_plate:
 		bodies_on_plate.erase(body)
 		
-		# If that was the VERY LAST body, emit the deactivated signal.
+		
 		if bodies_on_plate.is_empty():
 			emit_signal("deactivated")
-			visual.color = Color.RED # Visual feedback
+			visual.color = Color.RED 
 			print("Pressure Plate Deactivated.")

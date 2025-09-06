@@ -30,7 +30,7 @@ shape = SubResource("RectangleShape2D_wfnes")
 position = Vector2(-525, 248)
 
 [node name="PressurePlate" parent="." instance=ExtResource("2_ag8r6")]
-position = Vector2(-425, 277)
+position = Vector2(-281, 278)
 collision_layer = 0
 
 [node name="Door" parent="." instance=ExtResource("3_8c6yt")]

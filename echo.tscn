@@ -172,7 +172,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ts30y"]
 radius = 16.0
-height = 84.0
+height = 106.0
 
 [node name="Echo" type="AnimatableBody2D"]
 collision_layer = 2
