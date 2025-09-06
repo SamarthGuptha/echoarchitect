@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bfcf4sj1a0oqc"]
+[gd_scene load_steps=11 format=3 uid="uid://bfcf4sj1a0oqc"]
 
 [ext_resource type="Texture2D" uid="uid://bojxvo3qavjdd" path="res://City_men_1/Idle.png" id="1_no7pv"]
+[ext_resource type="Script" path="res://echo.gd" id="1_rgier"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h7c71"]
 atlas = ExtResource("1_no7pv")
@@ -55,6 +56,7 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ts30y"]
 
 [node name="Echo" type="CharacterBody2D"]
+script = ExtResource("1_rgier")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.713726, 1, 1, 0.772549)

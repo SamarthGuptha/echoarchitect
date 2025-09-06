@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://bi2roojducmx1"]
+[gd_scene load_steps=28 format=3 uid="uid://bi2roojducmx1"]
 
 [ext_resource type="Texture2D" uid="uid://bojxvo3qavjdd" path="res://City_men_1/Idle.png" id="1_gkw1c"]
 [ext_resource type="Script" path="res://player.gd" id="1_ys4d1"]
 [ext_resource type="Texture2D" uid="uid://eda4efqt32ru" path="res://City_men_1/Run.png" id="2_bhki7"]
+[ext_resource type="Texture2D" uid="uid://c5o6radgvbuyc" path="res://City_men_1/Attack.png" id="3_1k0ye"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s5boo"]
 atlas = ExtResource("1_gkw1c")
@@ -27,6 +28,26 @@ region = Rect2(512, 0, 128, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_t3gbd"]
 atlas = ExtResource("1_gkw1c")
 region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_erylw"]
+atlas = ExtResource("3_1k0ye")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpxh1"]
+atlas = ExtResource("3_1k0ye")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir7qn"]
+atlas = ExtResource("3_1k0ye")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfnqw"]
+atlas = ExtResource("3_1k0ye")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_huuv3"]
+atlas = ExtResource("3_1k0ye")
+region = Rect2(512, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ab3fp"]
 atlas = ExtResource("2_bhki7")
@@ -95,6 +116,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_erylw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpxh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ir7qn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfnqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_huuv3")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ab3fp")
 }, {
 "duration": 1.0,
@@ -140,8 +181,7 @@ script = ExtResource("1_ys4d1")
 position = Vector2(-8, -27)
 scale = Vector2(0.896825, 0.914063)
 sprite_frames = SubResource("SpriteFrames_jtj4x")
-animation = &"run"
-frame_progress = 0.849668
+animation = &"jump"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, -5)
