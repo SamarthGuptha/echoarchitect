@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dln8rble5onfk"]
+
+[ext_resource type="Script" path="res://TimerBar.gd" id="1_0ti4w"]
+
+[node name="TimerBar" type="ProgressBar"]
+offset_right = 4.0
+offset_bottom = 27.0
+script = ExtResource("1_0ti4w")

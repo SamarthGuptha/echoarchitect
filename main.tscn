@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cui1rlpa7d1ih"]
+[gd_scene load_steps=9 format=3 uid="uid://cui1rlpa7d1ih"]
 
 [ext_resource type="PackedScene" uid="uid://bi2roojducmx1" path="res://player.tscn" id="1_dqjbh"]
 [ext_resource type="Script" path="res://main.gd" id="1_w0s4k"]
@@ -6,16 +6,19 @@
 [ext_resource type="PackedScene" uid="uid://vis2o8lfc2qm" path="res://Door.tscn" id="3_8c6yt"]
 [ext_resource type="PackedScene" uid="uid://sww8xlx1bed2" path="res://Pedestal.tscn" id="4_b0iw1"]
 [ext_resource type="PackedScene" uid="uid://bgun2m5tv0ju1" path="res://Artifact.tscn" id="5_r8mjt"]
+[ext_resource type="PackedScene" uid="uid://dn4e0ncln8tk6" path="res://HUD.tscn" id="7_fmu4h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wfnes"]
 size = Vector2(1135, 34)
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("player", "pressure_plate", "door", "artifact")]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("player", "pressure_plate", "door", "artifact", "pedestal", "hud")]
 script = ExtResource("1_w0s4k")
 player = NodePath("Player")
 pressure_plate = NodePath("PressurePlate")
 door = NodePath("Door")
 artifact = NodePath("Artifact")
+pedestal = NodePath("Area2D2")
+hud = NodePath("CanvasLayer")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2
@@ -41,6 +44,8 @@ position = Vector2(-5, 277)
 
 [node name="Artifact" parent="." instance=ExtResource("5_r8mjt")]
 position = Vector2(-180, 241)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("7_fmu4h")]
 
 [connection signal="spawn_echo" from="Player" to="." method="_on_player_spawn_echo"]
 [connection signal="activated" from="PressurePlate" to="." method="_on_pressure_plate_activated"]

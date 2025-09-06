@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dn4e0ncln8tk6"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_aqhvo"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_aqhvo")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 130.0
+offset_bottom = 29.0
+text = "Echo Charges: 3"

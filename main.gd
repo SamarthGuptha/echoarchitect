@@ -1,40 +1,40 @@
-# Main.gd
-# Attached to the Main scene's root node.
-# Handles echo spawning and connecting puzzle elements.
-
+class_name Main
 extends Node2D
-
-var echo_scene = preload("res://Echo.tscn")
 
 @export var player: Player
 @export var pressure_plate: PressurePlate
 @export var door: Door
 @export var artifact: Artifact
+@export var pedestal: Pedestal
+@export var hud: HUD
+
+var echo_scene = preload("res://Echo.tscn")
 
 func _ready():
-	# Connect player signals
+	var required_nodes = [player, pressure_plate, door, artifact, pedestal, hud]
+	for node in required_nodes:
+		if not node:
+			print("ERROR: One or more exported nodes are not assigned in the Main scene.")
+			return
+
 	player.spawn_echo.connect(on_player_spawn_echo)
-
-	# --- Phase 3: Connect all the puzzle pieces together ---
-	if pressure_plate and door:
-		pressure_plate.activated.connect(door.open_door)
-		pressure_plate.deactivated.connect(door.close_door)
+	player.charges_changed.connect(hud.update_charge_display)
 	
-	if artifact and player:
-		artifact.collected.connect(player._on_artifact_collected)
-	# ------------------------------------------------------
+	pressure_plate.activated.connect(door.open_door)
+	pressure_plate.deactivated.connect(door.close_door)
+	
+	artifact.collected.connect(player.collect_artifact)
+	
+	pedestal.artifact_delivered.connect(_on_artifact_delivered)
+	
+	hud.update_charge_display(player.echo_charges)
 
-
-func on_player_spawn_echo(playback_data: Array):
+func on_player_spawn_echo(playback_data, spawn_pos):
 	var echo_instance = echo_scene.instantiate()
+	echo_instance.global_position = spawn_pos
+	echo_instance.set_playback_data(playback_data)
+	echo_instance.playback_finished.connect(player.restore_charge)
 	add_child(echo_instance)
-	echo_instance.tree_exited.connect(player._on_echo_destroyed)
-	echo_instance.start_playback(playback_data)
 
-
-func _on_pressure_plate_activated() -> void:
-	pass # Replace with function body.
-
-
-func _on_pressure_plate_deactivated() -> void:
-	pass # Replace with function body.
+func _on_artifact_delivered():
+	print("Main scene received artifact_delivered signal. VICTORY!")
