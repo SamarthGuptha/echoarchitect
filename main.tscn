@@ -10,6 +10,7 @@ size = Vector2(1135, 34)
 script = ExtResource("1_w0s4k")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(2.5, 299)
@@ -19,5 +20,6 @@ shape = SubResource("RectangleShape2D_wfnes")
 
 [node name="Player" parent="." instance=ExtResource("1_dqjbh")]
 position = Vector2(-525, 248)
+collision_mask = 2
 
 [connection signal="spawn_echo" from="Player" to="." method="_on_player_spawn_echo"]

@@ -1,10 +1,14 @@
 class_name Echo
 extends AnimatableBody2D
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var collision_shape = $CollisionShape2D
 
 var playback_data = []
 var current_frame = 0
 var is_playing = false
+
+func _ready():
+	sync_to_physics = true
 
 func start_playback(data: Array):
 	if data.is_empty():
