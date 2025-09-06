@@ -171,6 +171,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ts30y"]
+radius = 16.0
+height = 84.0
 
 [node name="Echo" type="AnimatableBody2D"]
 collision_layer = 2
@@ -179,8 +181,11 @@ script = ExtResource("1_rgier")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.305882, 1, 1, 1)
+position = Vector2(3, -33)
 sprite_frames = SubResource("SpriteFrames_7gb74")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 10
+position = Vector2(-1, -5)
 shape = SubResource("CapsuleShape2D_ts30y")

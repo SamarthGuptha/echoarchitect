@@ -23,10 +23,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var recording_data = []
 var is_recording = false
 
-# --- Phase 2: Echo Charges ---
 const MAX_ECHO_CHARGES = 3
 var echo_charges = MAX_ECHO_CHARGES
-# -----------------------------
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -55,9 +53,6 @@ func _physics_process(delta):
 			print("Echo spawned. Charges remaining: ", echo_charges)
 			# Emit a DUPLICATE of the data so we can safely clear the original.
 			emit_signal("spawn_echo", recording_data.duplicate())
-			# Clear the data for the next recording
-			is_recording = false # Stop recording automatically after playback
-			recording_data.clear()
 		elif echo_charges <= 0:
 			print("Out of Echo Charges!")
 		
