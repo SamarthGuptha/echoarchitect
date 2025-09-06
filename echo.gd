@@ -1,5 +1,5 @@
 class_name Echo
-extends CharacterBody2D
+extends AnimatableBody2D
 @onready var animated_sprite = $AnimatedSprite2D
 
 var playback_data = []

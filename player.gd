@@ -24,7 +24,7 @@ func _physics_process(delta):
 	handle_recording()
 	if Input.is_action_just_pressed("playback"):
 		if not recording_data.is_empty():
-			emit_signal("spawn_echo", recording_data)
+			emit_signal("spawn_echo", recording_data.duplicate())
 			recording_data.clear()
 	move_and_slide()
 func handle_recording():
