@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://bfcf4sj1a0oqc"]
+
+[ext_resource type="Texture2D" uid="uid://bojxvo3qavjdd" path="res://City_men_1/Idle.png" id="1_no7pv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7c71"]
+atlas = ExtResource("1_no7pv")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a04ms"]
+atlas = ExtResource("1_no7pv")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggp0p"]
+atlas = ExtResource("1_no7pv")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngwq8"]
+atlas = ExtResource("1_no7pv")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glctd"]
+atlas = ExtResource("1_no7pv")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88kwv"]
+atlas = ExtResource("1_no7pv")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7gb74"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7c71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a04ms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ggp0p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngwq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glctd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88kwv")
+}],
+"loop": true,
+"name": &"idle_ghost",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ts30y"]
+
+[node name="Echo" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.713726, 1, 1, 0.772549)
+sprite_frames = SubResource("SpriteFrames_7gb74")
+animation = &"idle_ghost"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ts30y")
