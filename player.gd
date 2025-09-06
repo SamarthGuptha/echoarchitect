@@ -1,30 +1,24 @@
-# Player.gd
-# Attached to the Player CharacterBody2D node.
-# Handles movement, recording, and initiating playback.
-
 class_name Player
 extends CharacterBody2D
-
-# A signal to tell the main scene to spawn an echo.
-# We pass the recorded data along with the signal.
 signal spawn_echo(playback_data)
 
-# Player movement parameters
 const SPEED = 250.0
 const JUMP_VELOCITY = -350.0
-
-# Get gravity from the project settings
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
-# Node references
 @onready var animated_sprite = $AnimatedSprite2D
-
-# Recording variables
 var recording_data = []
 var is_recording = false
 
+# --- Phase 2: Echo Charges ---
 const MAX_ECHO_CHARGES = 3
 var echo_charges = MAX_ECHO_CHARGES
+# -----------------------------
+
+# --- Phase 3: Artifact State ---
+var has_artifact = false
+var carried_artifact = null
+# -------------------------------
+
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -51,30 +45,32 @@ func _physics_process(delta):
 		if not recording_data.is_empty() and echo_charges > 0:
 			echo_charges -= 1
 			print("Echo spawned. Charges remaining: ", echo_charges)
-			# Emit a DUPLICATE of the data so we can safely clear the original.
 			emit_signal("spawn_echo", recording_data.duplicate())
 		elif echo_charges <= 0:
 			print("Out of Echo Charges!")
 		
-
 	move_and_slide()
+	
+	# --- Phase 3: Make artifact follow player ---
+	if has_artifact and carried_artifact:
+		# Position the artifact slightly above the player's head.
+		carried_artifact.global_position = global_position + Vector2(0, -40)
+	# --------------------------------------------
 
 
 func handle_recording():
 	if Input.is_action_just_pressed("record"):
-		is_recording = not is_recording 
+		is_recording = not is_recording
 
 		if is_recording:
-
 			recording_data.clear()
 			print("Recording started...")
 		else:
-
 			print("Recording stopped. Frames recorded: ", recording_data.size())
-
 
 	if is_recording:
 		record_current_frame()
+
 
 func record_current_frame():
 	var frame_data = {
@@ -99,7 +95,16 @@ func update_animation(direction):
 		else:
 			animated_sprite.play("idle")
 
+
 func _on_echo_destroyed():
 	if echo_charges < MAX_ECHO_CHARGES:
 		echo_charges += 1
 		print("Echo destroyed. Charge restored. Charges: ", echo_charges)
+
+# --- Phase 3: Function to handle picking up an artifact ---
+func _on_artifact_collected(artifact_node):
+	has_artifact = true
+	carried_artifact = artifact_node
+	# We don't make it a child, we just control its position manually.
+	# This prevents it from interfering with player physics.
+# ------------------------------------------------------------

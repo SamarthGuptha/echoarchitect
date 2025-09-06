@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgun2m5tv0ju1"]
+
+[ext_resource type="Script" path="res://artifact.gd" id="1_ic5wp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_va735"]
+radius = 7.0
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_ic5wp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 4.0
+offset_bottom = 4.0
+color = Color(0.95063, 0.495091, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_va735")

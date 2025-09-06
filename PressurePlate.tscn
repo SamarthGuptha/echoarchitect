@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhg6d756dnhjy"]
+
+[ext_resource type="Script" path="res://pressureplate.gd" id="1_gxmoc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sjcp8"]
+size = Vector2(23.6364, 7.27273)
+
+[node name="Area2D" type="Area2D"]
+collision_mask = 3
+script = ExtResource("1_gxmoc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -13.0
+offset_top = -4.0
+offset_right = 13.0
+offset_bottom = 4.0
+color = Color(0.984314, 0, 0.0352941, 0.87451)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5.06639e-07, 0)
+scale = Vector2(1.1, 1.1)
+shape = SubResource("RectangleShape2D_sjcp8")

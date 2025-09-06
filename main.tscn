@@ -1,13 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://cui1rlpa7d1ih"]
+[gd_scene load_steps=8 format=3 uid="uid://cui1rlpa7d1ih"]
 
 [ext_resource type="PackedScene" uid="uid://bi2roojducmx1" path="res://player.tscn" id="1_dqjbh"]
 [ext_resource type="Script" path="res://main.gd" id="1_w0s4k"]
+[ext_resource type="PackedScene" uid="uid://bhg6d756dnhjy" path="res://PressurePlate.tscn" id="2_ag8r6"]
+[ext_resource type="PackedScene" uid="uid://vis2o8lfc2qm" path="res://Door.tscn" id="3_8c6yt"]
+[ext_resource type="PackedScene" uid="uid://sww8xlx1bed2" path="res://Pedestal.tscn" id="4_b0iw1"]
+[ext_resource type="PackedScene" uid="uid://bgun2m5tv0ju1" path="res://Artifact.tscn" id="5_r8mjt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wfnes"]
 size = Vector2(1135, 34)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("player", "pressure_plate", "door", "artifact")]
 script = ExtResource("1_w0s4k")
+player = NodePath("Player")
+pressure_plate = NodePath("PressurePlate")
+door = NodePath("Door")
+artifact = NodePath("Artifact")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2
@@ -20,6 +28,20 @@ shape = SubResource("RectangleShape2D_wfnes")
 
 [node name="Player" parent="." instance=ExtResource("1_dqjbh")]
 position = Vector2(-525, 248)
-collision_mask = 2
+
+[node name="PressurePlate" parent="." instance=ExtResource("2_ag8r6")]
+position = Vector2(-425, 277)
+collision_layer = 0
+
+[node name="Door" parent="." instance=ExtResource("3_8c6yt")]
+position = Vector2(-125, 238)
+
+[node name="Area2D2" parent="." instance=ExtResource("4_b0iw1")]
+position = Vector2(-5, 277)
+
+[node name="Artifact" parent="." instance=ExtResource("5_r8mjt")]
+position = Vector2(-180, 241)
 
 [connection signal="spawn_echo" from="Player" to="." method="_on_player_spawn_echo"]
+[connection signal="activated" from="PressurePlate" to="." method="_on_pressure_plate_activated"]
+[connection signal="deactivated" from="PressurePlate" to="." method="_on_pressure_plate_deactivated"]
