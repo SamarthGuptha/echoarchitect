@@ -12,15 +12,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wfnes"]
 size = Vector2(1135, 34)
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("player", "pressure_plate", "door", "pedestal", "hud", "transition_area", "artifact")]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("player", "pressure_plate", "door", "hud", "transition_area")]
 script = ExtResource("1_w0s4k")
 player = NodePath("Player")
 pressure_plate = NodePath("PressurePlate")
 door = NodePath("Door")
-pedestal = NodePath("Area2D2")
 hud = NodePath("CanvasLayer")
 transition_area = NodePath("TransitionArea")
-artifact = NodePath("Artifact")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2

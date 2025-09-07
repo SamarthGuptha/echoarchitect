@@ -4,17 +4,13 @@ extends Node2D
 @export var player: Player
 @export var pressure_plate: PressurePlate
 @export var door: Door
-@export var pedestal: Pedestal
 @export var hud: HUD
-@export var transition_area: TransitionArea
-
-@export var artifact: Artifact
+@export var transition_area: TransitionArea # <-- Add this line
 
 var echo_scene = preload("res://Echo.tscn")
 
-
 func _ready():
-	var required_nodes = [player, pressure_plate, door, pedestal, hud, transition_area]
+	var required_nodes = [player, pressure_plate, door, hud, transition_area] # <-- Add transition_area
 	for node in required_nodes:
 		if not node:
 			print("ERROR: One or more exported nodes are not assigned in the Main scene.")
@@ -25,8 +21,9 @@ func _ready():
 	
 	pressure_plate.activated.connect(door.open_door)
 	pressure_plate.deactivated.connect(door.close_door)
+	
+	# Connect the new signal from our transition area
 	transition_area.player_entered_transition.connect(_on_player_reached_end)
-	pedestal.artifact_delivered.connect(_on_artifact_delivered)
 	
 	hud.update_charge_display(player.echo_charges)
 
@@ -44,9 +41,6 @@ func on_player_spawn_echo(playback_data: Array[Dictionary], spawn_pos: Vector2):
 	add_child(echo_instance)
 
 
-func _on_artifact_delivered():
-	# ADDED THIS PRINT STATEMENT FOR DEBUGGING
-	print("Main scene received artifact_delivered signal. VICTORY!")
-	get_tree().reload_current_scene()
+# This new function handles the scene change
 func _on_player_reached_end(scene_path: String):
-	get_tree().change_scene_to_file(scene_path)
+	get_tree().call_deferred("change_scene_to_file", scene_path)
