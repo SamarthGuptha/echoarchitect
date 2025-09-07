@@ -4,8 +4,11 @@ extends Area2D
 signal collected(artifact_node)
 
 func _ready():
-	body_entered.connect(_on_body_entered)
+	monitoring = true
 
 func _on_body_entered(body):
-	if body is Player and not body.has_artifact:
+	# THIS IS THE TEST LINE:
+	print("Artifact detected a body named: ", body.name)
+	
+	if body is Player:
 		emit_signal("collected", self)

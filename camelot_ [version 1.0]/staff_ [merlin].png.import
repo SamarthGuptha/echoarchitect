@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvvfnfpbbc35g"
-path="res://.godot/imported/Hurt.png-d902b996102203c796c08df4b55bf85f.ctex"
+uid="uid://b24fwu244vc5p"
+path="res://.godot/imported/staff_ [merlin].png-6dc2768fc5b5d45910dda9edc392cbff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://City_men_1/Hurt.png"
-dest_files=["res://.godot/imported/Hurt.png-d902b996102203c796c08df4b55bf85f.ctex"]
+source_file="res://camelot_ [version 1.0]/staff_ [merlin].png"
+dest_files=["res://.godot/imported/staff_ [merlin].png-6dc2768fc5b5d45910dda9edc392cbff.ctex"]
 
 [params]
 

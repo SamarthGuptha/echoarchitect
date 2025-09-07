@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bojxvo3qavjdd"
-path="res://.godot/imported/Idle.png-4ecea94de6b27e92cfc069b17219773f.ctex"
+uid="uid://cb6o71kbb5mpl"
+path="res://.godot/imported/percival_.png-d1282789251718fc39d4e2db0c680142.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://City_men_1/Idle.png"
-dest_files=["res://.godot/imported/Idle.png-4ecea94de6b27e92cfc069b17219773f.ctex"]
+source_file="res://camelot_ [version 1.0]/percival_.png"
+dest_files=["res://.godot/imported/percival_.png-d1282789251718fc39d4e2db0c680142.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://eda4efqt32ru"
-path="res://.godot/imported/Run.png-80367c7a6142fcb4c635c199f2d64973.ctex"
+uid="uid://d3fcvwy6d0tpx"
+path="res://.godot/imported/morganLeFay_.png-18f1bdbb72e9e19179dcc135383ce4c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://City_men_1/Run.png"
-dest_files=["res://.godot/imported/Run.png-80367c7a6142fcb4c635c199f2d64973.ctex"]
+source_file="res://camelot_ [version 1.0]/morganLeFay_.png"
+dest_files=["res://.godot/imported/morganLeFay_.png-18f1bdbb72e9e19179dcc135383ce4c0.ctex"]
 
 [params]
 

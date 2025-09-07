@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jg3chd3dawa2"
-path="res://.godot/imported/Walk.png-819e532bffbef3e37b7bc7be66db4277.ctex"
+uid="uid://chfestf6hp2ae"
+path="res://.godot/imported/fisherKing_.png-952ffead45d4ebcd28ea05efd7a177ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://City_men_1/Walk.png"
-dest_files=["res://.godot/imported/Walk.png-819e532bffbef3e37b7bc7be66db4277.ctex"]
+source_file="res://camelot_ [version 1.0]/fisherKing_.png"
+dest_files=["res://.godot/imported/fisherKing_.png-952ffead45d4ebcd28ea05efd7a177ce.ctex"]
 
 [params]
 

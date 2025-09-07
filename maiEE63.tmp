@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cui1rlpa7d1ih"]
+[gd_scene load_steps=9 format=3 uid="uid://cui1rlpa7d1ih"]
 
 [ext_resource type="PackedScene" uid="uid://bi2roojducmx1" path="res://player.tscn" id="1_dqjbh"]
 [ext_resource type="Script" path="res://main.gd" id="1_w0s4k"]
@@ -7,20 +7,18 @@
 [ext_resource type="PackedScene" uid="uid://sww8xlx1bed2" path="res://Pedestal.tscn" id="4_b0iw1"]
 [ext_resource type="PackedScene" uid="uid://bgun2m5tv0ju1" path="res://Artifact.tscn" id="5_r8mjt"]
 [ext_resource type="PackedScene" uid="uid://dn4e0ncln8tk6" path="res://HUD.tscn" id="7_fmu4h"]
-[ext_resource type="PackedScene" uid="uid://cbn68mjkciggu" path="res://TransitionArea.tscn" id="8_fms3l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wfnes"]
 size = Vector2(1135, 34)
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("player", "pressure_plate", "door", "pedestal", "hud", "transition_area", "artifact")]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("player", "pressure_plate", "door", "artifact", "pedestal", "hud")]
 script = ExtResource("1_w0s4k")
 player = NodePath("Player")
 pressure_plate = NodePath("PressurePlate")
 door = NodePath("Door")
+artifact = NodePath("Artifact")
 pedestal = NodePath("Area2D2")
 hud = NodePath("CanvasLayer")
-transition_area = NodePath("TransitionArea")
-artifact = NodePath("Artifact")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2
@@ -32,7 +30,7 @@ shape = SubResource("RectangleShape2D_wfnes")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("1_dqjbh")]
-position = Vector2(-526, 263)
+position = Vector2(-525, 248)
 
 [node name="PressurePlate" parent="." instance=ExtResource("2_ag8r6")]
 position = Vector2(-281, 278)
@@ -42,15 +40,12 @@ collision_layer = 0
 position = Vector2(-125, 238)
 
 [node name="Area2D2" parent="." instance=ExtResource("4_b0iw1")]
-position = Vector2(-448, 275)
+position = Vector2(-5, 277)
 
 [node name="Artifact" parent="." instance=ExtResource("5_r8mjt")]
 position = Vector2(-180, 241)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("7_fmu4h")]
-
-[node name="TransitionArea" parent="." instance=ExtResource("8_fms3l")]
-position = Vector2(-59, -4)
 
 [connection signal="spawn_echo" from="Player" to="." method="_on_player_spawn_echo"]
 [connection signal="activated" from="PressurePlate" to="." method="_on_pressure_plate_activated"]

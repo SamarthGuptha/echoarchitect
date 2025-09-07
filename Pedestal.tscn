@@ -6,6 +6,7 @@
 size = Vector2(50, 10)
 
 [node name="Area2D" type="Area2D"]
+collision_layer = 2
 script = ExtResource("1_0cif4")
 
 [node name="ColorRect" type="ColorRect" parent="."]
