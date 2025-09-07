@@ -7,7 +7,6 @@ func _ready():
 	monitoring = true
 
 func _on_body_entered(body):
-	# THIS IS THE TEST LINE:
 	print("Pedestal detected a body named: ", body.name)
 	
 	if body is Player:

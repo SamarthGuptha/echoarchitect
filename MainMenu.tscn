@@ -13,8 +13,10 @@ script = ExtResource("1_8280l")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 173.0
+offset_top = 185.0
+offset_right = 979.0
+offset_bottom = 349.0
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -29,6 +31,14 @@ text = "Start Game"
 [node name="Button2" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Quit Game"
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Press R to record your movements, press R again to stop, then press E to summon an echo, you get 3. "
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "PLEASE NOTE THAT THIS IS A HEAVY WIP, ALMOST NOTHING IS DONE AS IM NEW TO GAMEDEV"
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
