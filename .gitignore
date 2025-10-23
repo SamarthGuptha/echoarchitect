@@ -1,3 +1,17 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+# Temporary files
+*.tmp
+
+# Build artifacts
+*.zip
+*.exe
+*.apk
+*.dmg
+
+# IDE configurations
+.idea/
+.vscode/
+*.iml
